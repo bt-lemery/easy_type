@@ -52,8 +52,9 @@ module EasyType
     def convert_csv_data_to_hash(csv_data, headers = [], options = {})
       options = check_options(options)
       default_options = {
-        :header_converters => lambda { |f| f ? f.strip : nil }
+        :header_converters => lambda { |f| f ? f.strip : nil },
         # :converters=> lambda {|f| f ? f.strip : nil}
+        :liberal_parsing => true
       }
       if headers != []
         default_options[:headers] = headers
